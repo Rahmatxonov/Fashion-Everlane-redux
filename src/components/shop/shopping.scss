@@ -3,15 +3,15 @@
 
 .shopping {
   padding-top: 90px;
+
   &__card {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     &__img {
-      width: 212px;
-      height: 263px;
-      column-gap: 20px;
+      width: 170px;
+      height: 200px;
+      // column-gap: 20px;
     }
     &__text {
       max-width: 250px;

@@ -1,0 +1,47 @@
+@import "../../sass/mixins.scss";
+@import "../../sass/variables.scss";
+
+.styleCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 90px;
+  position: relative;
+  &__img {
+    width: 405px;
+    height: 534px;
+    object-fit: cover;
+  }
+  &__div {
+    position: relative;
+  }
+  &__span {
+    &__title1,
+    &__title2,
+    &__title3 {
+      position: absolute;
+      top: 40%;
+      left: 40%;
+      color: $white;
+      font-family: "Maison-Regular";
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: 0.2px;
+      max-width: 430px;
+      width: 100%;
+    }
+    &__btn1,
+    &__btn2,
+    &__btn3 {
+      width: 280px;
+      position: absolute;
+      top: 52%;
+      left: 20%;
+      padding: 12px 51px 12px 51px;
+      font-family: "Maison-Regular";
+      font-weight: 400;
+      border: none;
+    }
+  }
+}

@@ -13,11 +13,13 @@
     padding-top: 120px;
     position: relative;
   }
+
   &__info {
     position: absolute;
     top: 50%;
-    left: 20%;
-    // margin: 0 auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     &__title {
       max-width: 632px;
       width: 100%;
@@ -28,7 +30,13 @@
       line-height: 55px;
       letter-spacing: 0.92px;
       text-align: center;
+
+      @include for-tablet {
+        font-size: 36px;
+        line-height: 44px;
+      }
     }
+
     &__text {
       max-width: 290px;
       width: 100%;
@@ -39,7 +47,15 @@
       text-align: center;
       color: $white;
       padding-bottom: 30px;
+
+      @include for-tablet {
+        font-size: 20px;
+        line-height: 28px;
+        max-width: 240px;
+        margin: 0 auto;
+      }
     }
+
     &__btn {
       padding: 12px 79px;
       text-transform: uppercase;
@@ -53,12 +69,53 @@
       border: 2px solid transparent;
       transition: 0.4s ease-in;
       margin-left: 20px;
+
+      @include for-tablet {
+        padding: 10px 60px;
+        font-size: 12px;
+        letter-spacing: 1.2px;
+      }
     }
+
     &__btn:hover {
       background-color: transparent;
       color: $white;
       border: 2px solid $white;
       cursor: pointer;
+    }
+  }
+
+  @include for-tablet {
+    &__info {
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -40%);
+    }
+  }
+
+  @include for-mobile {
+    &__info {
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+
+      &__title {
+        font-size: 32px;
+        line-height: 40px;
+      }
+
+      &__text {
+        font-size: 18px;
+        line-height: 24px;
+        max-width: 200px;
+        margin: 0 auto;
+      }
+
+      &__btn {
+        padding: 8px 50px;
+        font-size: 10px;
+        letter-spacing: 1px;
+      }
     }
   }
 }

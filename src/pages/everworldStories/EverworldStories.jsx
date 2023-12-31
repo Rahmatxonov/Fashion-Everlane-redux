@@ -1,10 +1,10 @@
-import "./about.scss";
+import "./everworldStories.scss";
 import { NavLink } from "react-router-dom";
 
-const About = () => {
+const EverworldStories = () => {
   return (
     <div>
-      <h1>About</h1>
+      <h1>EverworldStories</h1>
       <NavLink to="/">
         <h2>Back to Home</h2>
       </NavLink>
@@ -12,4 +12,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default EverworldStories;

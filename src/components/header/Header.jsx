@@ -1,5 +1,5 @@
 import "./header.scss";
-import headerbg from "../../assets/image/header.jpg";
+import headerbg from "../../assets/image/Section.jpg";
 
 const Header = () => {
   return (

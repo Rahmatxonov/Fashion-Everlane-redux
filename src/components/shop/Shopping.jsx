@@ -10,9 +10,7 @@ const Shopping = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://fakestoreapi.com/products?sort=desc"
-        );
+        const response = await axios.get("https://fakestoreapi.com/products");
         const slicedProducts = response.data.slice(0, 6);
         setProducts(slicedProducts);
         console.log(slicedProducts);
@@ -37,47 +35,51 @@ const Shopping = () => {
   };
 
   return (
-    <div className="shopping">
-      <h2 className="shopping__title">Shop by Category</h2>
-      <ul className="shopping__card">
-        {products.map((product) => (
-          <li key={product.id} onClick={() => openModal(product)}>
-            <div>
+    <div className="container">
+      <div className="shopping">
+        <h2 className="shopping__title">Shop by Category</h2>
+        <ul className="shopping__card">
+          {products.map((product) => (
+            <li key={product.id} onClick={() => openModal(product)}>
+              <div>
+                <img
+                  className="shopping__card__img"
+                  src={product.image}
+                  alt={product.title}
+                />
+                {/* <p className="shopping__card__text">{product.title}</p> */}
+                <p className="shopping__card__text">
+                  {product.title.length > 10
+                    ? `${product.title.substring(0, 10)}...`
+                    : product.title}
+                  {product.title.length > 10 && (
+                    <span onClick={() => openModal(product)}>...</span>
+                  )}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        {selectedProduct && isModalOpen && (
+          <div className="modal">
+            <div className="modal__content">
+              <span className="modal__close" onClick={closeModal}>
+                &times;
+              </span>
               <img
-                className="shopping__card__img"
-                src={product.image}
-                alt={product.title}
+                className="modal__img"
+                src={selectedProduct.image}
+                alt={selectedProduct.title}
               />
-              {/* <p className="shopping__card__text">{product.title}</p> */}
-              <p className="shopping__card__text">
-                {product.title.length > 10
-                  ? `${product.title.substring(0, 10)}...`
-                  : product.title}
-                {product.title.length > 10 && (
-                  <span onClick={() => openModal(product)}>...</span>
-                )}
+              <h3 className="modal__title">{selectedProduct.title}</h3>
+              <p className="modal__description">
+                {selectedProduct.description}
               </p>
             </div>
-          </li>
-        ))}
-      </ul>
-
-      {selectedProduct && isModalOpen && (
-        <div className="modal">
-          <div className="modal__content">
-            <span className="modal__close" onClick={closeModal}>
-              &times;
-            </span>
-            <img
-              className="modal__img"
-              src={selectedProduct.image}
-              alt={selectedProduct.title}
-            />
-            <h3 className="modal__title">{selectedProduct.title}</h3>
-            <p className="modal__description">{selectedProduct.description}</p>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

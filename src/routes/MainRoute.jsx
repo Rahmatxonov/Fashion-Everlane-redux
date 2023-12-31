@@ -6,7 +6,7 @@ import Footer from "../components/footer/Footer";
 import Women from "../pages/women/Women";
 import Men from "../pages/men/Men";
 import About from "../pages/about/About";
-import Stories from "../pages/stories/Stories";
+import EverworldStories from "../pages/everworldStories/EverworldStories";
 import NotFound from "../pages/NotFound";
 
 const MainRoute = () => {
@@ -19,7 +19,7 @@ const MainRoute = () => {
         <Route path="/women" element={<Women />} />
         <Route path="/men" element={<Men />} />
         <Route path="/about" element={<About />} />
-        <Route path="/stories" element={<Stories />} />
+        <Route path="/everworldStories" element={<EverworldStories />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
